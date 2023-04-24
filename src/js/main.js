@@ -1,5 +1,6 @@
 import "./slider";
 import modal from "./modal";
+
 //import tabs from "./tabs";
 window.addEventListener("DOMContentLoaded", () => {
   modal();

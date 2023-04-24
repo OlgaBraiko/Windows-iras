@@ -1,5 +1,9 @@
 const modals = () => {
-  const bindModal = (triggerSelector, modalSelector, closeSelector) => {
+  const bindModal = ({
+    trigger: triggerSelector,
+    modal: modalSelector,
+    close: closeSelector,
+  }) => {
     const triggers = document.querySelectorAll(triggerSelector);
     const modal = document.querySelector(modalSelector);
     const close = document.querySelector(closeSelector);
@@ -14,17 +18,31 @@ const modals = () => {
         document.body.classList.add("modal-open");
       });
     });
-    const closeModal = [modal, close];
+    const closeModal = () => {
+      modal.style.display = "none";
+      document.body.style.overflow = "";
+    };
+    closeModal();
 
-    closeModal.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        if (e.target === modal || e.target === "Escape") {
-          modal.style.display = "none";
-          document.body.style.overflow = "";
-        }
-      });
+    close.addEventListener("click", () => {
+      closeModal();
     });
   };
+
+  modal.addEventListener("click", () => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  const closeModalEsc = () => {
+    e.keyCode.addEventListener("click", () => {
+      if (e.keyCode === 27) {
+        closeModal();
+      }
+    });
+  };
+  closeModalEsc();
 
   const showModalByTime = (selector, time) => {
     setTimeout(() => {
