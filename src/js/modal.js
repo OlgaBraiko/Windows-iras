@@ -1,6 +1,6 @@
 const modals = () => {
   const bindModal = ({
-    trigger: triggerSelector,
+    triggers: triggerSelector,
     modal: modalSelector,
     close: closeSelector,
   }) => {
@@ -18,11 +18,12 @@ const modals = () => {
         document.body.classList.add("modal-open");
       });
     });
+
     const closeModal = () => {
       modal.style.display = "none";
       document.body.style.overflow = "";
     };
-    modal.addEventListener("click", () => {
+    modal.addEventListener("click", (e) => {
       if (e.target === modal) {
         closeModal();
       }
@@ -30,13 +31,13 @@ const modals = () => {
     close.addEventListener("click", () => {
       closeModal();
     });
-  };
 
-  document.addEventListener("click", (e) => {
-    if (e.code.toLowerCase() === "escape") {
-      closeModal();
-    }
-  });
+    document.addEventListener("keypress", (e) => {
+      if (e.code.toLowerCase() === "escape") {
+        closeModal();
+      }
+    });
+  };
 
   const showModalByTime = (selector, time) => {
     setTimeout(() => {
