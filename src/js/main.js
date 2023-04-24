@@ -1,12 +1,12 @@
 import "./slider";
-import modals from "./modals";
+import modals from "./modal";
 import tabs from "./tabs";
 window.addEventListener("DOMContentLoaded", () => {
-  modals();
+  //modals();
   tabs({
     header: ".glazing_slider",
     tabs: ".glazing_block",
     content: ".glazing_content",
-    activClass: "active",
+    activeClass: "active",
   });
 });
