@@ -22,27 +22,21 @@ const modals = () => {
       modal.style.display = "none";
       document.body.style.overflow = "";
     };
-    closeModal();
-
+    modal.addEventListener("click", () => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
     close.addEventListener("click", () => {
       closeModal();
     });
   };
 
-  modal.addEventListener("click", () => {
-    if (e.target === modal) {
+  document.addEventListener("click", (e) => {
+    if (e.code.toLowerCase() === "escape") {
       closeModal();
     }
   });
-
-  const closeModalEsc = () => {
-    e.keyCode.addEventListener("click", () => {
-      if (e.keyCode === 27) {
-        closeModal();
-      }
-    });
-  };
-  closeModalEsc();
 
   const showModalByTime = (selector, time) => {
     setTimeout(() => {
@@ -50,7 +44,7 @@ const modals = () => {
       document.body.style.overflow = "hidden";
     }, time);
   };
-  showModalByTime(".popup", 60000);
+  //showModalByTime(".popup", 60000);
 
   bindModal({
     triggers: ".popup_engineer_btn",
