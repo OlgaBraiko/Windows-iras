@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
   modals();
   tabs({
     header: ".glazing_slider",
-    tab: ".glazing_block",
+    tabs: ".glazing_block",
     content: ".glazing_content",
     activClass: "active",
   });

@@ -21,6 +21,9 @@ const modals = () => {
         document.body.style.overflow = "";
       });
     };
+
+    closeModal();
+
     modal.addEventListener("click", (e) => {
       if (e.target === modal) {
         modal.style.display = "none";
@@ -28,8 +31,6 @@ const modals = () => {
       }
     });
   };
-
-  closeModal();
 
   const showModalByTime = (selector, time) => {
     setTimeout(() => {
