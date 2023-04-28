@@ -3,6 +3,7 @@ const tabs = ({
   tabs: tabsSelector,
   contents: contentSelector,
   activeClass: activeClass,
+  display: display = "block",
 }) => {
   const header = document.querySelector(headerSelector);
   const tabs = document.querySelectorAll(tabsSelector);
@@ -12,21 +13,21 @@ const tabs = ({
     contents.forEach((content) => {
       content.style.display = "none";
     });
-    tabs.forEach((item) => {
-      item.classList.remove(activeClass);
+    tabs.forEach((tab) => {
+      tab.classList.remove(activeClass);
     });
   };
 
   const showTabContent = (i = 0) => {
-    contents[i].style.display = "block";
+    contents[i].style.display = display;
     tabs[i].classList.add(activeClass);
   };
   hideTabContent();
   showTabContent();
 
   const open = (target) => {
-    tabs.forEach((item, i) => {
-      if (target == item || target.parentNode == item) {
+    tabs.forEach((tab, i) => {
+      if (target == tab || target.parentNode == tab) {
         hideTabContent();
         showTabContent(i);
       }

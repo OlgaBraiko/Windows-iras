@@ -9,6 +9,13 @@ window.addEventListener("DOMContentLoaded", () => {
     contents: ".glazing_content",
     activeClass: "active",
   });
+  tabs({
+    header: ".balcon_icons",
+    tabs: "balcon_icons_img",
+    contents: ".big_img > img",
+    activeClass: "do_image_more",
+    display: "inline-block",
+  });
 });
 
 window.addEventListener("DOMContentLoaded", () => {
