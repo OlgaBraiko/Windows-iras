@@ -18,10 +18,22 @@ const tabs = ({
     });
   };
 
-  const showTabContent = (i = 0) => {
+  const checkTabs = (i) => tabs[i] !== undefined;
+
+  function showTabContent(i = 0) {
+    if (checkTabs(i)) {
+      contents[i].style.display = display;
+      tabs[i].classList.add(activeClass);
+    } else {
+      // сделать что-нибудь, в случае, если tabs[i] === undefined
+      console.log("error");
+    }
+  }
+
+  /*const showTabContent = (i = 0) => {
     contents[i].style.display = display;
     tabs[i].classList.add(activeClass);
-  };
+  };*/
   hideTabContent();
   showTabContent();
 

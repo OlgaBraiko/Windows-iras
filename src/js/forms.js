@@ -1,5 +1,3 @@
-//import { data, error } from "jquery";
-
 const form = () => {
   const forms = document.querySelectorAll("form");
   const inputs = document.querySelectorAll("input");
@@ -10,20 +8,17 @@ const form = () => {
     failure: "Что-то пошло не так...",
   };
 
-  const postData = async (data) => {
+  const postData = async (url, data) => {
     document.querySelector(".status").textContent = message.loading;
-    const result = await fetch(
-      "https://simple-server-cumz.onrender.com/api/data",
-      {
-        method: "POST",
-        body: data,
-      }
-        .then((res) => res.text())
-        .then((data) => console.log(data))
-        .catch((error) => console.log(error))
-    );
+    const result = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "aplication/json",
+      },
+      body: data,
+    });
 
-    return await result.text(data);
+    return await result.text();
   };
 
   const clearInputs = () => {
@@ -34,7 +29,7 @@ const form = () => {
 
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => {
-      e.preventDefault;
+      e.preventDefault();
 
       const statusMesage = document.createElement("div");
       statusMesage.classList.add("status");
@@ -47,7 +42,7 @@ const form = () => {
       formData.forEach((value, key) => (objDataForm[key] = value));
       const json = JSON.stringify(objDataForm);
 
-      postData("assets/server.php", json)
+      postData("https://simple-server-cumz.onrender.com/api/data", json)
         .then((result) => {
           console.log(result);
           statusMesage.textContent = message.success;
