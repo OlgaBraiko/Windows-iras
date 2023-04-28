@@ -1,4 +1,4 @@
-import { data, error } from "jquery";
+//import { data, error } from "jquery";
 
 const form = () => {
   const forms = document.querySelectorAll("form");
@@ -12,7 +12,7 @@ const form = () => {
 
   const postData = async (data) => {
     document.querySelector(".status").textContent = message.loading;
-    let result = await fetch(
+    const result = await fetch(
       "https://simple-server-cumz.onrender.com/api/data",
       {
         method: "POST",
@@ -36,7 +36,7 @@ const form = () => {
     form.addEventListener("submit", (e) => {
       e.preventDefault;
 
-      let statusMesage = document.createElement("div");
+      const statusMesage = document.createElement("div");
       statusMesage.classList.add("status");
       form.appendChild(statusMesage);
 
@@ -47,7 +47,7 @@ const form = () => {
       formData.forEach((value, key) => (objDataForm[key] = value));
       const json = JSON.stringify(objDataForm);
 
-      postData("assets/server.php", formData)
+      postData("assets/server.php", json)
         .then((result) => {
           console.log(result);
           statusMesage.textContent = message.success;
