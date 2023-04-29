@@ -44,7 +44,7 @@ const modals = () => {
     });
 
     document.addEventListener("keypress", (e) => {
-      if (e.key.toLowerCase() === "escape") {
+      if (e.code.toLowerCase() === "escape") {
         closeModal();
       }
     });

@@ -43,7 +43,7 @@ const tabs = ({
 
   header.addEventListener("keypress", (e) => {
     const target = e.target;
-    if (e.key.toLocaleLowerCase() === "enter") {
+    if (e.code.toLocaleLowerCase() === "enter") {
       open(target);
     }
   });
