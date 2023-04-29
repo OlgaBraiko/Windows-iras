@@ -8,7 +8,6 @@ const tabs = ({
   const header = document.querySelector(headerSelector);
   const tabs = document.querySelectorAll(tabsSelector);
   const contents = document.querySelectorAll(contentSelector);
-  const windows = document.querySelectorAll("[data-modal");
 
   const hideTabContent = () => {
     contents.forEach((content) => {
@@ -26,26 +25,23 @@ const tabs = ({
   hideTabContent();
   showTabContent();
 
-  const openWindow = (target) => {
-    windows.forEach((window, i) => {
-      if (target == window || target.parentNode == window) {
-        hideTabContent();
-        showTabContent(i);
-      }
-    });
-  };
-
   const open = (target) => {
     tabs.forEach((tab, i) => {
       if (target == tab || target.parentNode == tab) {
         hideTabContent();
         showTabContent(i);
-        openWindow();
       }
     });
   };
 
   document.addEventListener("keypress", (e) => {
+    const target = e.target;
+    if (e.key.toLocaleLowerCase() === "enter") {
+      open(target);
+    }
+  });
+
+  header.addEventListener("keypress", (e) => {
     const target = e.target;
     if (e.key.toLocaleLowerCase() === "enter") {
       open(target);
