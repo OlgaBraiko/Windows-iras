@@ -10,6 +10,7 @@ const form = () => {
 
   const postData = async (url, data) => {
     document.querySelector(".status").textContent = message.loading;
+ 
     const result = await fetch(url, {
       method: "POST",
       headers: {
@@ -44,7 +45,11 @@ const form = () => {
 
       postData("https://simple-server-cumz.onrender.com/api/data", json)
         .then((result) => {
+ 04_formCalculator
           console.log(result);
+ 
+          console.log({ result });
+  master
           statusMesage.textContent = message.success;
         })
         .catch(() => (statusMesage.textContent = message.failure))
