@@ -2,7 +2,11 @@ import "./slider";
 import tabs from "./tabs";
 import modal from "./modal";
 import forms from "./forms";
+import changeModalState from "./changeModalState";
+
 window.addEventListener("DOMContentLoaded", () => {
+  const modalState = {};
+
   tabs({
     header: ".glazing_slider",
     tabs: ".glazing_block",
@@ -18,4 +22,5 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   modal();
   forms();
+  changeModalState(modalState);
 });
