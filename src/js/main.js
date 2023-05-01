@@ -16,11 +16,6 @@ window.addEventListener("DOMContentLoaded", () => {
     activeClass: "do_image_more",
     display: "inline-block",
   });
-});
-
-window.addEventListener("DOMContentLoaded", () => {
   modal();
-});
-window.addEventListener("DOMContentLoaded", () => {
   forms();
 });
