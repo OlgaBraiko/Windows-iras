@@ -4,7 +4,6 @@ const changeModalState = (state) => {
   const windowHeigths = document.querySelectorAll("#height");
   const windowTypes = document.querySelectorAll("#view_type");
   const windowsProfiles = document.querySelectorAll(".checkbox");
-  const phoneInputs = document.querySelectorAll('input[name="user_phone"]');
 
   const bindActionElems = (event, elem, prop) => {
     elem.forEach((el, i) => {
@@ -14,18 +13,7 @@ const changeModalState = (state) => {
             state[prop] = i;
             break;
           case "INPUT":
-            if (el.getAttribute("type" === "checkbox")) {
-              i === 0 ? (state[prop] = "Холодное") : (state[prop] = "Теплое");
-              elem.forEach((box, j) => {
-                box.checked = false;
-                if (i === j) {
-                  box.checked = true;
-                }
-              });
-            } else {
-              state[prop] = el.value;
-            }
-            break;
+            state[prop] = el.value;
           case "SELECT":
             state[prop] = el.value;
             break;
