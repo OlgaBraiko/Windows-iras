@@ -7,7 +7,7 @@ import timer from "./timer";
 
 window.addEventListener("DOMContentLoaded", () => {
   const modalState = {};
-  const deadline = "2023-04-18";
+  const deadline = "2023-05-10";
 
   tabs({
     header: ".glazing_slider",
