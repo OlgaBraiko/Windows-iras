@@ -20,7 +20,7 @@ const timer = (id, deadline) => {
     };
   };
   const updateClock = () => {
-    const t = getTimeRemaining(endtime);
+    const t = getTimeRemaining(deadline);
     days.textContent = addZero(t.days);
     hours.textContent = addZero(t.hours);
     minutes.textContent = addZero(t.minutes);
@@ -34,9 +34,6 @@ const timer = (id, deadline) => {
 
       clearInterval(timeInterval);
     }
-
-    updateClock();
-
     const setClock = (selector, endtime) => {
       const timer = document.querySelector(selector);
       const days = document.querySelector("#days");
@@ -45,8 +42,10 @@ const timer = (id, deadline) => {
       const seconds = document.querySelector("#seconds");
       const timeInterval = setInterval(updateClock, 1000);
     };
-    setClock(id, deadline);
+    setclock(id, deadline);
   };
+
+  updateClock();
 };
 
 export default timer;
