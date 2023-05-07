@@ -2,6 +2,8 @@ import "./slider";
 import tabs from "./tabs";
 import modal from "./modal";
 import forms from "./forms";
+import images from "./images";
+
 window.addEventListener("DOMContentLoaded", () => {
   tabs({
     header: ".glazing_slider",
@@ -16,4 +18,5 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 window.addEventListener("DOMContentLoaded", () => {
   forms();
+  images();
 });
