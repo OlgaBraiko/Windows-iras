@@ -57,6 +57,23 @@ const modals = () => {
     modal: ".popup",
     close: ".popup .popup_close",
   });
+  bindModal({
+    triggers: ".popup_calc_btn",
+    modal: ".popup_calc",
+    close: ".popup_calc_close",
+  });
+  bindModal({
+    triggers: ".popup_calc_button",
+    modal: ".popup_calc_profile",
+    close: ".popup_calc_profile_close",
+    closeClick: false,
+  });
+  bindModal({
+    triggers: ".popup_calc_profile_button",
+    modal: ".popup_calc_end",
+    close: ".popup_calc_end_close",
+    closeClick: false,
+  });
 };
 
 export default modals;
