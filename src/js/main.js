@@ -2,7 +2,7 @@ import "./slider";
 import tabs from "./tabs";
 import modal from "./modal";
 import forms from "./forms";
-import changeModalState from "./changeModalState";
+//import changeModalState from "./changeModalState";
 import timer from "./timer";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -24,6 +24,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   modal();
   forms();
-  changeModalState(modalState);
+  //changeModalState(modalState);
   timer(".container1", deadline);
 });
