@@ -1,7 +1,8 @@
 const timer = (id, deadline) => {
-  const addZero = (num) => {
-    num <= 9 ? "0" + num : num;
-  };
+  
+  console.log("hello");
+  const addZero = (num) => (num <= 9 ? "0" + num : num);
+   
 
   const getTimeRemaining = (endtime) => {
     const t = Date.parse(endtime) - Date.parse(new Date());
@@ -18,35 +19,37 @@ const timer = (id, deadline) => {
       minutes: minutes,
       seconds: seconds,
     };
-  };
-  const updateClock = () => {
-    const t = getTimeRemaining(endtime);
-    days.textContent = addZero(t.days);
-    hours.textContent = addZero(t.hours);
-    minutes.textContent = addZero(t.minutes);
-    seconds.textContent = addZero(t.seconds);
+ 
+ 
+  const setClock = (selector, endtime) => {
+    const timer = document.querySelector(selector);
+    const days = document.querySelector("#days");
+    const hours = document.querySelector("#hours");
+    const minutes = document.querySelector("#minutes");
+    const seconds = document.querySelector("#seconds");
 
-    if (t.total <= 0) {
-      days.textContent = "00";
-      hours.textContent = "00";
-      minutes.textContent = "00";
-      seconds.textContent = "00";
+    const updateClock = () => {
+      const t = getTimeRemaining(endtime);
+      days.textContent = addZero(t.days);
+      hours.textContent = addZero(t.hours);
+      minutes.textContent = addZero(t.minutes);
+      seconds.textContent = addZero(t.seconds);
 
-      clearInterval(timeInterval);
-    }
+      if (t.total <= 0) {
+        days.textContent = "00";
+        hours.textContent = "00";
+        minutes.textContent = "00";
+        seconds.textContent = "00";
 
-    updateClock();
-
-    const setClock = (selector, endtime) => {
-      const timer = document.querySelector(selector);
-      const days = document.querySelector("#days");
-      const hours = document.querySelector("#hours");
-      const minutes = document.querySelector("#minutes");
-      const seconds = document.querySelector("#seconds");
-      const timeInterval = setInterval(updateClock, 1000);
+        clearInterval(timeInterval);
+      }
     };
-    setClock(id, deadline);
+    updateClock();
+    const timeInterval = setInterval(updateClock, 1000);
   };
+
+  setClock(id, deadline);
+  
 };
 
 export default timer;

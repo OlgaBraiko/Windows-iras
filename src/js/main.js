@@ -3,9 +3,11 @@ import tabs from "./tabs";
 import modal from "./modal";
 import forms from "./forms";
 import changeModalState from "./changeModalState";
+import timer from "./timer";
 
 window.addEventListener("DOMContentLoaded", () => {
   const modalState = {};
+  const deadline = "2023-05-12";
 
   tabs({
     header: ".glazing_slider",
@@ -23,4 +25,5 @@ window.addEventListener("DOMContentLoaded", () => {
   modal();
   forms();
   changeModalState(modalState);
+  timer(".container1", deadline);
 });
