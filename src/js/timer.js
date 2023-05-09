@@ -1,6 +1,8 @@
 const timer = (id, deadline) => {
+  
   console.log("hello");
   const addZero = (num) => (num <= 9 ? "0" + num : num);
+   
 
   const getTimeRemaining = (endtime) => {
     const t = Date.parse(endtime) - Date.parse(new Date());
@@ -17,7 +19,8 @@ const timer = (id, deadline) => {
       minutes: minutes,
       seconds: seconds,
     };
-  };
+ 
+ 
   const setClock = (selector, endtime) => {
     const timer = document.querySelector(selector);
     const days = document.querySelector("#days");
@@ -46,6 +49,7 @@ const timer = (id, deadline) => {
   };
 
   setClock(id, deadline);
+  
 };
 
 export default timer;
