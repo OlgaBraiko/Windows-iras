@@ -1,5 +1,4 @@
 const timer = (id, deadline) => {
-  console.log("hello");
   const addZero = (num) => (num <= 9 ? "0" + num : num);
 
   const getTimeRemaining = (endtime) => {
