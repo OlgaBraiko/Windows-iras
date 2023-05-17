@@ -14,7 +14,7 @@ const form = () => {
     const result = await fetch(url, {
       method: "POST",
       headers: {
-        "Content-type": "aplication/json",
+        "Content-type": "application/json",
       },
       body: data,
     });
