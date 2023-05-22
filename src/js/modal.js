@@ -3,10 +3,12 @@ const modals = () => {
     triggers: triggerSelector,
     modal: modalSelector,
     close: closeSelector,
+    closeClick: closeClickOverlay = true,
   }) => {
     const triggers = document.querySelectorAll(triggerSelector);
     const modal = document.querySelector(modalSelector);
     const close = document.querySelector(closeSelector);
+    const windows = document.querySelectorAll("[data-modal]");
 
     triggers.forEach((trigger) => {
       trigger.addEventListener("click", (e) => {
@@ -23,17 +25,26 @@ const modals = () => {
       modal.style.display = "none";
       document.body.style.overflow = "";
     };
+
+    const closeWindows = () => {
+      windows.forEach((window) => {
+        window.style.display = "none";
+      });
+    };
+
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
+      if (e.target === modal && closeClickOverlay) {
+        closeWindows();
         closeModal();
       }
     });
     close.addEventListener("click", () => {
       closeModal();
+      closeWindows();
     });
 
     document.addEventListener("keypress", (e) => {
-      if (e.key.toLowerCase() === "escape") {
+      if (e.code.toLowerCase() === "escape") {
         closeModal();
       }
     });
