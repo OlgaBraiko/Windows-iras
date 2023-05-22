@@ -1,7 +1,12 @@
 import "./slider";
 import tabs from "./tabs";
 import modal from "./modal";
-import forms from "./forms";
+ 
+import images from "./images";
+import changeModalState from "./changeModalState";
+import timer from "./timer";
+ 
+ 
  
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -23,10 +28,14 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   modal();
   forms();
-  06_modalImage
+ 
+  images();
+  changeModalState(modalState);
+  timer(".container1", deadline);
+ 
   images();
  
   changeModalState(modalState);
   timer(".container1", deadline);
-  master
+ 
 });

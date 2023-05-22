@@ -1,9 +1,11 @@
 const timer = (id, deadline) => {
  
+ 
   
   
   const addZero = (num) => (num <= 9 ? "0" + num : num);
     
+ 
   const getTimeRemaining = (endtime) => {
     const t = Date.parse(endtime) - Date.parse(new Date());
 
@@ -19,8 +21,6 @@ const timer = (id, deadline) => {
       minutes: minutes,
       seconds: seconds,
     };
- 
- 
  
   const setClock = (selector, endtime) => {
     const timer = document.querySelector(selector);
@@ -50,7 +50,6 @@ const timer = (id, deadline) => {
   };
 
   setClock(id, deadline);
-  
  
 };
 
